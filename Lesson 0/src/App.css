@@ -1,0 +1,34 @@
+.App {
+    font-family:    Helvetica, sans-serif;
+}
+
+.App > * {
+    margin: auto;
+}
+
+.Home {
+    border: 1px solid black;
+}
+
+.Home > h1 {
+    text-align: center;
+}
+
+.Home > :last-child {
+    margin-bottom: 15px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-counter {
+    display: block;
+    background-color: transparent;
+    border: 1px solid black;
+    font-family: inherit;
+    padding: .5em;
+    margin: 0 5px;
+    cursor: pointer;
+}
