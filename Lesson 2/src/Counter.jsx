@@ -1,33 +1,30 @@
-import React, {useEffect, useState} from "react";
-import { doc, setDoc } from "firebase/firestore";
-import db from './firebase';
+import React, {useState, useEffect} from "react";
 
 function Counter(props) {
+  const title = props.title;
+  const initCount = props.initCount;
+  
+  const [count, setCount] = useState(initCount);
 
-	const [count, setCount] = useState(props.initCount);
+  useEffect(() => {
+    console.log('in')
+  }, []);
 
-	useEffect(() => {
-		const myDoc = doc(db, "counters", props.title);
-		setDoc(myDoc, {name: props.title, count: count})
-	}, [count]);
-
-	const increment = () => {
-		setCount(count + 1);
-	}
-
-	const decrement = () => {
-		setCount(count - 1);
-	}
-
-	return (
-		<div className="Counter">
-			<h1>{props.title}</h1>
-			<h2>{count}</h2>
-			<button onClick={increment}>+ 1</button>
-			<button onClick={decrement}>- 1</button>
-		</div>
-	);
+  const increment = () => {
+    setCount(count + 1);
+  }
+  const decrement = () => {
+    setCount(count - 1);
+  }
+  
+  return (
+   <div>
+    <h1>{title}</h1>
+    <h2>{count}</h2>
+    <button onClick={increment}>+</button>
+    <button onClick={decrement}>-</button>
+   </div> 
+  );
 }
 
-export default Counter;
-
+export default Counter
